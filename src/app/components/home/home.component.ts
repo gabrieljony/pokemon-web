@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from 'src/app/services/loading.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   totalItems: number = 100;
   pages: number[] = [];
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.updatePages();
@@ -25,15 +26,20 @@ export class HomeComponent implements OnInit {
   }
 
   getPokemonList(): void {
+    this.pokemonList = [];
+    this.loadingService.showLoading();
     this.pokemonService.getPokemonList(this.offset, this.limit).subscribe((data) => {
-      this.totalItems = data.count; //Total de 66 páginas pois são 1302 pokemons
-      this.pokemonList = data.results.map((element: any) => {
-        return {
-          name: element.name,
-          id: this.extractPokemonId(element.url),
-          imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${element.url.split('/')[6]}.png`
-        }
-      });
+      setTimeout(() => {
+        this.totalItems = data.count; //Total de 66 páginas pois são 1302 pokemons
+        this.pokemonList = data.results.map((element: any) => {
+          return {
+            name: element.name,
+            id: this.extractPokemonId(element.url),
+            imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${element.url.split('/')[6]}.png`
+          }
+        });
+        this.loadingService.hideLoading();
+      }, 2000);
     });
   }
 
