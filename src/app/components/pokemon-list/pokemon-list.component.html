@@ -1,0 +1,12 @@
+<div class="pokemon-list-container">
+    <h1>Pokémon List</h1>
+    <p>Foi implementada uma função loadPokemon() para buscar os dados da API com base nos parâmetros
+        de offset e limit, permitindo a paginação dos resultados. O scroll da página é monitorado e, quando o usuário se
+        aproxima do final da página, mais Pokémon são carregados.</p>
+    <ul>
+        <li *ngFor="let pokemon of pokemonList">
+            <span class="pokemon-details">{{ pokemon.name }}</span>
+            <span class="pokemon-details">ID: {{ extractPokemonId(pokemon.url) }}</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,17 @@
+<h1>Welcome to the Pokédex!</h1>
+<p>Select a Pokémon to view its details:</p>
+<ul class="pokemon-list">
+  <li class="pokemon-card" *ngFor="let pokemon of pokemonList">
+    <img [src]="pokemon.imageUrl" alt="{{ pokemon.name }}">
+    <a [routerLink]="['/pokemon', pokemon.id]">{{ pokemon.name }} - {{pokemon.id}}</a>
+  </li>
+</ul>
+<div class="pagination">
+  <button class="btn first-last-btn" (click)="goToFirstPage()">Primeira</button>
+  <button class="btn" (click)="previousPage()">Anterior</button>
+  <ng-container *ngFor="let page of pages">
+    <button class="btn" [class.active]="page === currentPage" (click)="goToPage(page)">{{ page }}</button>
+  </ng-container>
+  <button class="btn" (click)="nextPage()">Próxima</button>
+  <button class="btn first-last-btn" (click)="goToLastPage()">Última</button>
+</div>
