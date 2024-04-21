@@ -19,4 +19,8 @@ export class PokemonService {
   getPokemon(id: number |string | null): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
+  getColors(): Observable<any> {
+    return this.http.get<any>('./../../../assets/cores.json');
+  }
 }

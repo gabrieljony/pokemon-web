@@ -1,0 +1,22 @@
+export const PokemonColors = {
+    normal: 'rgba(134, 92, 53, 0.8)',
+    fighting: 'rgba(219, 197, 212, 0.8)',
+    flying: 'rgba(202, 190, 151, 0.8)',
+    poison: 'rgba(130, 8, 129, 0.8)',
+    ground: 'rgba(133, 113, 116, 0.8)',
+    rock: 'rgba(153, 126, 124, 0.8)',
+    bug: 'rgba(146, 200, 112, 0.8)',
+    ghost: 'rgba(93, 83, 98, 0.8)',
+    steel: 'rgba(95, 145, 165, 0.8)',
+    fire: 'rgba(255, 160, 91, 0.8)',
+    water: 'rgba(86, 147, 216, 0.8)',
+    grass: 'rgba(67, 136, 33, 0.8)',
+    electric: 'rgba(242, 212, 51, 0.8)',
+    psychic: 'rgba(250, 117, 126, 0.8)',
+    ice: 'rgba(118, 209, 192, 0.8)',
+    dragon: 'rgba(121, 47, 53, 0.8)',
+    dark: 'rgba(81, 81, 81, 0.8)',
+    fairy: 'rgba(251, 77, 254, 0.8)',
+    unknown: 'rgba(210, 136, 116, 0.8)',
+    shadow: 'rgba(73, 72, 113, 0.8)'
+};

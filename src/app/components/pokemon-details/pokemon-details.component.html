@@ -1,4 +1,5 @@
-<div class="pokemon gradient-box" *ngIf="pokemon">
+<div class="pokemon" *ngIf="pokemon"
+    [ngStyle]="{ 'background': 'linear-gradient(to bottom right, ' + cor1 + ', ' + cor2 + ')' }">
     <h2>{{ pokemon.name | uppercase }}</h2>
     <div class="id">
         {{ formatNumber(pokemon.id) }}
@@ -8,5 +9,5 @@
     <p>Peso: {{ pokemon.weight }}</p>
     <div *ngFor="let type of pokemon.types" class="pokemon-type" [ngClass]="type.type.name">
         <span>{{ type.type.name | uppercase }}</span>
-      </div>
+    </div>
 </div>
